@@ -1,0 +1,22 @@
+version: "3.8"
+
+services:
+  web-app:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      # Pass the container URL as an environment variable
+      - MONGO_URL=mongodb://mongo-db:27017
+    depends_on:
+      - mongo-db
+
+  mongo-db:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+volumes:
+  mongo_data:
