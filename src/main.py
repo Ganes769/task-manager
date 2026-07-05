@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 
-from src.connection import get_db, lifespan  # Import from your connection.py
+from core.connection import get_db, lifespan  # Import from your connection.py
 
 # Initialize FastAPI and pass the imported lifespan context
 app = FastAPI(lifespan=lifespan)
